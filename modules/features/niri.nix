@@ -78,8 +78,13 @@
           "Mod+Shift+9".move-column-to-workspace = "w8";
           "Mod+Shift+0".move-column-to-workspace = "w9";
 
-          "XF86AudioRaiseVolume".spawn = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
-          "XF86AudioLowerVolume".spawn = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
+          "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
+          "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
+          "XF86AudioMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "XF86AudioMicMute".spawn-sh = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+
+          "XF86MonBrightnessUp".spawn-sh = "brightnessctl --class=backlight set +10%";
+          "XF86MonBrightnessDown".spawn-sh = "brightnessctl --class=backlight set 10%-";
 
           "Mod+Ctrl+H".set-column-width = "-5%";
           "Mod+Ctrl+L".set-column-width = "+5%";
@@ -90,6 +95,10 @@
           "Mod+WheelScrollUp".focus-column-right = _:{};
           "Mod+Ctrl+WheelScrollDown".focus-workspace-down = _:{};
           "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _:{};
+
+          "Print".screenshot = _:{};
+          "Ctrl+Print".screenshot-screen = _:{};
+          "Alt+Print".screenshot-window = _:{};
 
         };
 
