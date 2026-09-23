@@ -7,6 +7,7 @@
       self.nixosModules.noctalia
       self.nixosModules.git
       self.nixosModules.nixvim
+      self.nixosModules.zsh
     ];
   
     boot = {
@@ -45,9 +46,7 @@
       LC_TIME = "de_DE.UTF-8";
     };
   
-    # Configure console keymap
-    console.keyMap = "us";
-  
+    users.defaultUserShell = pkgs.zsh;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."khuong" = {
       isNormalUser = true;
@@ -67,7 +66,6 @@
       packages = with pkgs; [
         nerd-fonts.jetbrains-mono
       ];
-      
       fontconfig = {
         defaultFonts = {
           monospace = [ "JetBrainsMono Nerd Font" ];
@@ -106,6 +104,11 @@
             size = 0;
           };
         };
+      };
+
+      fzf = {
+        fuzzyCompletion = true;
+        keybindings = true;
       };
     };
 
