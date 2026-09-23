@@ -13,8 +13,8 @@
       settings = {
         user = {
           name = "Khuong Nguyen";
-	  email = "khuong.nguyen@tutamail.com";
-	};
+          email = "khuong.nguyen@tutamail.com";
+        };
       };
     };
   };

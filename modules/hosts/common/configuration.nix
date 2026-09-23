@@ -4,13 +4,22 @@
   flake.nixosModules.commonConfiguration = { pkgs, lib, ... }: {
     imports = [
       self.nixosModules.niri
+      self.nixosModules.noctalia
       self.nixosModules.git
       self.nixosModules.nixvim
     ];
   
-    # Use the systemd-boot EFI boot loader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot = {
+      loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
+
+        timeout = 1;
+      };
+      initrd = {
+        verbose = false;
+      };
+    };
   
     networking.wireless.enable = true;
     hardware.bluetooth.enable = true;
@@ -103,6 +112,7 @@
       after = [ "graphical-session.target" ];
 
       path = [
+        "/run/wrappers"
         "/run/current-system/sw"
         "/etc/profiles/per-user/%u"
       ];
