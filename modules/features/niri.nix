@@ -10,32 +10,36 @@
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
       settings = {
-	spawn-at-startup = [
-	  (lib.getExe self'.packages.myNoctalia)
-	];
+        spawn-at-startup = [
+          (lib.getExe self'.packages.myNoctalia)
+        ];
 
-	xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
         input = {
-	  keyboard.xkb.layout = "us, altgr-intl";
+          keyboard.xkb = {
+            layout = "de";
+            variant = "us";
+          };
 
-	  touchpad = {
-	    tap = {};
-	    natural-scroll = {};
-	    dwt = {};
-	    scroll-method = "two-finger";
-	    middle-emulation = {};
-	  };
-	};
+          touchpad = {
+            tap = {};
+            natural-scroll = {};
+            dwt = {};
+            scroll-method = "two-finger";
+            middle-emulation = {};
+          };
+        };
 
-	layout.gaps = 5;
+        layout.gaps = 8;
+        prefer-no-csd = true;
 
-	binds = {
-	  "Mod+T".spawn = lib.getExe pkgs.ghostty;
-	  "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
-	  "Mod+B".spawn-sh = lib.getExe pkgs.firefox;
-	  "Mod+Q".close-window = _:{};
-	  "Mod+F".maximize-column = _:{};
+        binds = {
+          "Mod+T".spawn = "${pkgs.foot}/bin/footclient";
+          "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          "Mod+B".spawn-sh = lib.getExe pkgs.firefox;
+          "Mod+Q".close-window = _:{};
+          "Mod+F".maximize-column = _:{};
           "Mod+G".fullscreen-window = _:{};
           "Mod+Shift+F".toggle-window-floating = _:{};
           "Mod+C".center-column = _:{};
@@ -55,7 +59,7 @@
           "Mod+Shift+K".move-window-up = _:{};
           "Mod+Shift+J".move-window-down = _:{};
 
-	  "Mod+1".focus-workspace = "w0";
+          "Mod+1".focus-workspace = "w0";
           "Mod+2".focus-workspace = "w1";
           "Mod+3".focus-workspace = "w2";
           "Mod+4".focus-workspace = "w3";
@@ -90,7 +94,7 @@
           "Mod+Ctrl+WheelScrollDown".focus-workspace-down = _:{};
           "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _:{};
 
-	};
+        };
 
         workspaces = let
           settings = {layout.gaps = 5;};

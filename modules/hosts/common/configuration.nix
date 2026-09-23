@@ -5,6 +5,7 @@
     imports = [
       self.nixosModules.niri
       self.nixosModules.git
+      self.nixosModules.nixvim
     ];
   
     # Use the systemd-boot EFI boot loader.
@@ -35,12 +36,6 @@
       LC_TIME = "de_DE.UTF-8";
     };
   
-    # Configure keymap in X11
-    services.xserver.xkb = {
-      layout = "de";
-      variant = "us";
-    };
-  
     # Configure console keymap
     console.keyMap = "us";
   
@@ -56,19 +51,66 @@
 
     hardware.graphics.enable = true;
     environment.systemPackages = with pkgs; [
-      neovim
       wget
       curl
-      ghostty
       firefox
       gh
+      ripgrep
     ];
 
     programs = {
       ssh.startAgent = true;
+      
+      foot = {
+        enable = true;
+        #server.enable = true;
+
+        theme = "gruvbox";
+        settings = {
+          main = {
+            font = "JetBrainMono:size=12";
+            pad = "0x0";
+          };
+
+          csd = {
+            preferred = "none";
+            size = 0;
+          };
+        };
+      };
     };
 
-    services.gnome.gcr-ssh-agent.enable = false;
+    services = {
+      gnome.gcr-ssh-agent.enable = false;
+
+      displayManager.noctalia-greeter = {
+        enable = true;
+        settings = {
+          cursor.size = 24;
+          keyboard = {
+            layout = "de";
+            variant = "us";
+          };
+        };
+      };
+    };
+
+    systemd.user.services.foot-server = {
+      description = "foot terminal daemon (nix-wrapper-modules)";
+      documentation = [ "man:foot(1)" ];
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+
+      path = [
+        "/run/current-system/sw"
+        "/etc/profiles/per-user/%u"
+      ];
+      serviceConfig = {
+        ExecStart = "${pkgs.foot}/bin/foot --server";
+        Restart = "on-failure";
+      };
+    };
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
