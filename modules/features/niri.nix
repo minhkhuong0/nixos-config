@@ -33,8 +33,8 @@
 
         binds = {
           "Mod+T".spawn = "${pkgs.foot}/bin/footclient";
-          "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
-          "Mod+B".spawn-sh = lib.getExe pkgs.firefox;
+          "Mod+D".spawn = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          "Mod+B".spawn = lib.getExe pkgs.firefox;
           "Mod+Q".close-window = _:{};
           "Mod+F".maximize-column = _:{};
           "Mod+G".fullscreen-window = _:{};
@@ -78,8 +78,8 @@
           "Mod+Shift+9".move-column-to-workspace = "w8";
           "Mod+Shift+0".move-column-to-workspace = "w9";
 
-          "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
-          "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
+          "XF86AudioRaiseVolume".spawn = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
+          "XF86AudioLowerVolume".spawn = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
 
           "Mod+Ctrl+H".set-column-width = "-5%";
           "Mod+Ctrl+L".set-column-width = "+5%";

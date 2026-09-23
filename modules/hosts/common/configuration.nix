@@ -55,6 +55,25 @@
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [];
     };
+
+    environment.variables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
+
+    fonts = {
+      enableDefaultPackages = true;
+      
+      packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
+      ];
+      
+      fontconfig = {
+        defaultFonts = {
+          monospace = [ "JetBrainsMono Nerd Font" ];
+        };
+      };
+    };
   
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -65,6 +84,7 @@
       firefox
       gh
       ripgrep
+      yazi
     ];
 
     programs = {
@@ -77,7 +97,7 @@
         theme = "gruvbox";
         settings = {
           main = {
-            font = "JetBrainMono:size=12";
+            font = "JetBrainsMono Nerd Font:size=12";
             pad = "0x0";
           };
 
