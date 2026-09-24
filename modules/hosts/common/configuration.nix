@@ -7,7 +7,6 @@
       self.nixosModules.noctalia
       self.nixosModules.git
       self.nixosModules.nixvim
-      self.nixosModules.zsh
     ];
   
     boot = {
@@ -46,7 +45,7 @@
       LC_TIME = "de_DE.UTF-8";
     };
   
-    users.defaultUserShell = pkgs.zsh;
+    users.defaultUserShell = pkgs.fish;
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users."khuong" = {
       isNormalUser = true;
@@ -106,10 +105,10 @@
         };
       };
 
-      fzf = {
-        fuzzyCompletion = true;
-        keybindings = true;
+      fish = {
+        enable = true;
       };
+
     };
 
     services = {
