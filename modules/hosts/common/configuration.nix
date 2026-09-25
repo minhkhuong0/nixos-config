@@ -88,25 +88,7 @@
 
     programs = {
       ssh.startAgent = true;
-      
-      foot = {
-        enable = true;
-        #server.enable = true;
-
-        theme = "gruvbox";
-        settings = {
-          main = {
-            font = "JetBrainsMono Nerd Font:size=12";
-            pad = "0x0";
-          };
-
-          csd = {
-            preferred = "none";
-            size = 0;
-          };
-        };
-        enableFishIntegration = true;
-      };
+      niri.enable = true;
 
       fish = {
         enable = true;
@@ -120,31 +102,12 @@
       displayManager.noctalia-greeter = {
         enable = true;
         settings = {
-          session.default = "/etc/profiles/per-user/khuong/bin/niri";
           cursor.size = 24;
           keyboard = {
             layout = "de";
             variant = "us";
           };
         };
-      };
-    };
-
-    systemd.user.services.foot-server = {
-      description = "foot terminal daemon (nix-wrapper-modules)";
-      documentation = [ "man:foot(1)" ];
-      wantedBy = [ "graphical-session.target" ];
-      partOf = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-
-      path = [
-        "/run/wrappers"
-        "/run/current-system/sw"
-        "/etc/profiles/per-user/%u"
-      ];
-      serviceConfig = {
-        ExecStart = "${pkgs.foot}/bin/foot --server";
-        Restart = "on-failure";
       };
     };
 

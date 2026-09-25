@@ -9,9 +9,10 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "backup";
 
       extraSpecialArgs = {
-        repoPath = "~/nixos-config";
+        repoPath = "/home/khuong/nixos-config";
       };
 
       users.khuong = {
@@ -19,6 +20,7 @@
         imports = [
           self.homeModules.noctalia
           self.homeModules.niri
+          self.homeModules.foot
         ];
       };
     };

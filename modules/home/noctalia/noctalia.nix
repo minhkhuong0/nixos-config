@@ -7,6 +7,6 @@
 
     xdg.configFile."noctalia/config.toml".source =
       config.lib.file.mkOutOfStoreSymlink
-        "${repoPath}/modules/home/noctalia/noctalia.toml";
+        (toString "${repoPath}/modules/home/noctalia/noctalia.toml");
   };
 }
