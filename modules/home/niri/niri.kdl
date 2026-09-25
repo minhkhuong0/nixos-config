@@ -9,39 +9,26 @@ binds {
 	Ctrl+Print {
 		screenshot-screen
 	}
-	Mod+0 {
-		focus-workspace "w9"
-	}
-	Mod+1 {
-		focus-workspace "w0"
-	}
-	Mod+2 {
-		focus-workspace "w1"
-	}
-	Mod+3 {
-		focus-workspace "w2"
-	}
-	Mod+4 {
-		focus-workspace "w3"
-	}
-	Mod+5 {
-		focus-workspace "w4"
-	}
-	Mod+6 {
-		focus-workspace "w5"
-	}
-	Mod+7 {
-		focus-workspace "w6"
-	}
-	Mod+8 {
-		focus-workspace "w7"
-	}
-	Mod+9 {
-		focus-workspace "w8"
-	}
-	Mod+B {
-		spawn "/nix/store/sakwwfknad7adibsvs65dsnjfn34m5yw-firefox-156.0/bin/firefox"
-	}
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
 	Mod+C {
 		center-column
 	}
@@ -93,36 +80,24 @@ binds {
 	Mod+Right {
 		focus-column-right
 	}
-	Mod+Shift+0 {
-		move-column-to-workspace "w9"
-	}
-	Mod+Shift+1 {
-		move-column-to-workspace "w0"
-	}
-	Mod+Shift+2 {
-		move-column-to-workspace "w1"
-	}
-	Mod+Shift+3 {
-		move-column-to-workspace "w2"
-	}
-	Mod+Shift+4 {
-		move-column-to-workspace "w3"
-	}
-	Mod+Shift+5 {
-		move-column-to-workspace "w4"
-	}
-	Mod+Shift+6 {
-		move-column-to-workspace "w5"
-	}
-	Mod+Shift+7 {
-		move-column-to-workspace "w6"
-	}
-	Mod+Shift+8 {
-		move-column-to-workspace "w7"
-	}
-	Mod+Shift+9 {
-		move-column-to-workspace "w8"
-	}
+
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+  Mod+Ctrl+Home { move-column-to-first; }
+  Mod+Ctrl+End  { move-column-to-last; }
+
+  Mod+Tab { focus-monitor-next; }
+
+  Mod+W { toggle-column-tabbed-display; }
+
+  Mod+BracketLeft  { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+
+  // Consume one window from the right to the bottom of the focused column.
+  Mod+Comma  { consume-window-into-column; }
+  // Expel the bottom window from the focused column to the right.
+  Mod+Period { expel-window-from-column; }
+
 	Mod+Shift+F {
 		toggle-window-floating
 	}
@@ -138,8 +113,17 @@ binds {
 	Mod+Shift+L {
 		move-column-right
 	}
+
 	Mod+T {	spawn-sh "footclient";	}
+	Mod+B {
+		spawn "/nix/store/sakwwfknad7adibsvs65dsnjfn34m5yw-firefox-156.0/bin/firefox"
+	}
   Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
+
+  Mod+O repeat=false { toggle-overview; }
+
+
 	Mod+Up {
 		focus-window-up
 	}
@@ -167,6 +151,9 @@ binds {
 	XF86MonBrightnessUp {
 		spawn-sh "brightnessctl --class=backlight set +10%"
 	}
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  Ctrl+Alt+Delete { quit; }
 }
 input {
 	keyboard {
@@ -183,13 +170,25 @@ input {
 		tap
 	}
 }
+
+output "HDMI-A-1" {
+  off
+};
+
 layout {
 	gaps 8
+}
+gestures {
+  hot-corners {
+    off
+  }
 }
 prefer-no-csd true
 spawn-sh-at-startup "export XDG_CONFIG_HOME = $HOME/.config"
 xwayland-satellite {
 	path "/nix/store/fpdq16qwldlsp0mhlg2wi2gvwgb8x9i9-xwayland-satellite-0.8.2/bin/xwayland-satellite"
 }
+
+hotkey-overlay { skip-at-startup; }
 
 include "noctalia.kdl"
