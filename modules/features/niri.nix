@@ -1,15 +1,10 @@
 { self, inputs, ... }: {
-  flake.nixosModules.niri = { pkgs, lib, ... }: {
-    programs.niri = {
+  flake.homeModules.niri = { pkgs, lib, ... }: {
+    wayland.windowManager.niri = {
       enable = true;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
-    };
-  };
 
-  perSystem = { pkgs, lib, self', ... }: {
-    packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
-      inherit pkgs;
       settings = {
+        spawn-sh-at-startup = "export XDG_CONFIG_HOME = $HOME/.config";  
 
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
@@ -32,29 +27,29 @@
         prefer-no-csd = true;
 
         binds = {
-          "Mod+T".spawn = "${pkgs.foot}/bin/footclient";
-          "Mod+D".spawn = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          "Mod+T".spawn-sh = "${pkgs.foot}/bin/footclient -E";
+#          "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
           "Mod+B".spawn = lib.getExe pkgs.firefox;
-          "Mod+Q".close-window = _:{};
-          "Mod+F".maximize-column = _:{};
-          "Mod+G".fullscreen-window = _:{};
-          "Mod+Shift+F".toggle-window-floating = _:{};
-          "Mod+C".center-column = _:{};
+          "Mod+Q".close-window = {};
+          "Mod+F".maximize-column = {};
+          "Mod+G".fullscreen-window = {};
+          "Mod+Shift+F".toggle-window-floating = {};
+          "Mod+C".center-column = {};
 
-          "Mod+H".focus-column-left = _:{};
-          "Mod+L".focus-column-right = _:{};
-          "Mod+K".focus-window-up = _:{};
-          "Mod+J".focus-window-down = _:{};
+          "Mod+H".focus-column-left = {};
+          "Mod+L".focus-column-right = {};
+          "Mod+K".focus-window-up = {};
+          "Mod+J".focus-window-down = {};
 
-          "Mod+Left".focus-column-left = _:{};
-          "Mod+Right".focus-column-right = _:{};
-          "Mod+Up".focus-window-up = _:{};
-          "Mod+Down".focus-window-down = _:{};
+          "Mod+Left".focus-column-left = {};
+          "Mod+Right".focus-column-right = {};
+          "Mod+Up".focus-window-up = {};
+          "Mod+Down".focus-window-down = {};
 
-          "Mod+Shift+H".move-column-left = _:{};
-          "Mod+Shift+L".move-column-right = _:{};
-          "Mod+Shift+K".move-window-up = _:{};
-          "Mod+Shift+J".move-window-down = _:{};
+          "Mod+Shift+H".move-column-left = {};
+          "Mod+Shift+L".move-column-right = {};
+          "Mod+Shift+K".move-window-up = {};
+          "Mod+Shift+J".move-window-down = {};
 
           "Mod+1".focus-workspace = "w0";
           "Mod+2".focus-workspace = "w1";
@@ -91,31 +86,31 @@
           "Mod+Ctrl+J".set-window-height = "-5%";
           "Mod+Ctrl+K".set-window-height = "+5%";
 
-          "Mod+WheelScrollDown".focus-column-left = _:{};
-          "Mod+WheelScrollUp".focus-column-right = _:{};
-          "Mod+Ctrl+WheelScrollDown".focus-workspace-down = _:{};
-          "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _:{};
+          "Mod+WheelScrollDown".focus-column-left = {};
+          "Mod+WheelScrollUp".focus-column-right = {};
+          "Mod+Ctrl+WheelScrollDown".focus-workspace-down = {};
+          "Mod+Ctrl+WheelScrollUp".focus-workspace-up = {};
 
-          "Print".screenshot = _:{};
-          "Ctrl+Print".screenshot-screen = _:{};
-          "Alt+Print".screenshot-window = _:{};
+          "Print".screenshot = {};
+          "Ctrl+Print".screenshot-screen = {};
+          "Alt+Print".screenshot-window = {};
 
         };
 
-        workspaces = let
-          settings = {layout.gaps = 5;};
-        in {
-          "w0" = settings;
-          "w1" = settings;
-          "w2" = settings;
-          "w3" = settings;
-          "w4" = settings;
-          "w5" = settings;
-          "w6" = settings;
-          "w7" = settings;
-          "w8" = settings;
-          "w9" = settings;
-        };
+#        workspaces = let
+#          settings = {layout.gaps = 5;};
+#        in {
+#          "w0" = settings;
+#          "w1" = settings;
+#          "w2" = settings;
+#          "w3" = settings;
+#          "w4" = settings;
+#          "w5" = settings;
+#          "w6" = settings;
+#          "w7" = settings;
+#          "w8" = settings;
+#          "w9" = settings;
+#        };
       };
     };
   };

@@ -3,8 +3,7 @@
 {
   flake.nixosModules.commonConfiguration = { pkgs, lib, ... }: {
     imports = [
-      self.nixosModules.niri
-      self.nixosModules.noctalia
+      self.homeConfigurations.homeManager
       self.nixosModules.git
       self.nixosModules.nixvim
     ];
@@ -45,12 +44,12 @@
       LC_TIME = "de_DE.UTF-8";
     };
   
-    users.defaultUserShell = pkgs.fish;
-    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.defaultUserShell = "/bin/sh";
     users.users."khuong" = {
       isNormalUser = true;
       description = "Khuong";
       extraGroups = [ "networkmanager" "wheel" ];
+      shell = pkgs.fish;
       packages = with pkgs; [];
     };
 
@@ -58,6 +57,9 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
+
+    environment.pathsToLink = 
+    [ "/share/applications" "/share/xdg-desktop-portal" ];
 
     fonts = {
       enableDefaultPackages = true;
@@ -103,6 +105,7 @@
             size = 0;
           };
         };
+        enableFishIntegration = true;
       };
 
       fish = {
@@ -117,6 +120,7 @@
       displayManager.noctalia-greeter = {
         enable = true;
         settings = {
+          session.default = "/etc/profiles/per-user/khuong/bin/niri";
           cursor.size = 24;
           keyboard = {
             layout = "de";
