@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ inputs, ... }: {
   flake.nixosModules.nixvim = { pkgs, lib, ... }: {
     imports = [
       inputs.nix-vim.nixosModules.nixvim
@@ -13,6 +13,7 @@
         lightline.enable = true;
         telescope.enable = true;
         treesitter.enable = true;
+        lspconfig.enable = true;
       };
 
       opts = {
@@ -64,6 +65,16 @@
           key = "<C-l>";
           action = "<C-w>l";
         }
+      ];
+
+      lsp.servers = {
+        nil_ls.enable = true;
+        clangd.enable = true;
+      };
+
+      extraPackages = with pkgs; [
+        nil
+        clang
       ];
 
     };

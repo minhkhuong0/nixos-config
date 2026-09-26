@@ -1,4 +1,4 @@
-{ self, inputs, ... }:
+{ self, ... }:
 
 {
   flake.nixosModules.commonConfiguration = { pkgs, lib, ... }: {
@@ -84,6 +84,9 @@
       gh
       ripgrep
       yazi
+      gcc
+      man-pages
+      man-pages-posix
     ];
 
     programs = {
