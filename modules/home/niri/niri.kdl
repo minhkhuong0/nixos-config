@@ -116,7 +116,7 @@ binds {
 
 	Mod+T {	spawn-sh "footclient";	}
 	Mod+B {
-		spawn "/nix/store/sakwwfknad7adibsvs65dsnjfn34m5yw-firefox-156.0/bin/firefox"
+		spawn "zen-beta"
 	}
   Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
   Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }

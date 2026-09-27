@@ -80,7 +80,6 @@
     environment.systemPackages = with pkgs; [
       wget
       curl
-      firefox
       gh
       ripgrep
       yazi

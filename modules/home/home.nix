@@ -21,8 +21,16 @@
           self.homeModules.noctalia
           self.homeModules.niri
           self.homeModules.foot
+          self.homeModules.browser
         ];
+        xdg.mimeApps = {
+          enable = true;
+          defaultApplications = {
+            "application/pdf" = "zen-beta.desktop";
+          };
+        };
       };
+
     };
     
   };
