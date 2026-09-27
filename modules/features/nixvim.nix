@@ -70,11 +70,13 @@
       lsp.servers = {
         nil_ls.enable = true;
         clangd.enable = true;
+        pyright.enable = true;
       };
 
       extraPackages = with pkgs; [
         nil
         clang
+        pyright
       ];
 
     };

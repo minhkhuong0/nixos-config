@@ -86,6 +86,7 @@
       gcc
       man-pages
       man-pages-posix
+      python3
     ];
 
     programs = {
