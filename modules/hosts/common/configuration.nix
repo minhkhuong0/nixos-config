@@ -103,7 +103,7 @@
       gnome.gcr-ssh-agent.enable = false;
 
       displayManager.noctalia-greeter = {
-        enable = true;
+        enable = false;
         settings = {
           cursor.size = 24;
           keyboard = {
