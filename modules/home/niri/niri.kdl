@@ -87,6 +87,7 @@ binds {
   Mod+Ctrl+End  { move-column-to-last; }
 
   Mod+Tab { focus-monitor-next; }
+  Mod+Shift+Tab { move-column-to-monitor-next; }
 
   Mod+W { toggle-column-tabbed-display; }
 
@@ -119,7 +120,8 @@ binds {
 		spawn "zen-beta"
 	}
   Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
-  Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
+  Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg panel-toggle session"; }
+  Super+Shift+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
 
   Mod+O repeat=false { toggle-overview; }
 
@@ -175,8 +177,12 @@ output "HDMI-A-1" {
   off
 };
 
+output "LG Electronics LG ULTRAGEAR 401NTTQ9L889" {
+  focus-at-startup
+};
+
 layout {
-	gaps 8
+	gaps 4
 }
 gestures {
   hot-corners {

@@ -19,7 +19,7 @@ order = [ "default" ]
 
     [bar.default]
     auto_hide = false
-    background_opacity = 0.78999996185302734
+    background_opacity = 0.90999997965991497
     border = "outline"
     border_width = 0.0
     capsule = false
@@ -38,7 +38,7 @@ order = [ "default" ]
     hover_highlight = true
     layer = "top"
     margin_edge = 0
-    margin_ends = 500
+    margin_ends = 0
     margin_opposite_edge = 0
     padding = 14
     panel_overlap = 1
@@ -48,13 +48,13 @@ order = [ "default" ]
     radius_bottom_right = 12
     radius_top_left = 12
     radius_top_right = 12
-    reserve_space = false
+    reserve_space = true
     scale = 1.0
     shadow = true
     show_on_workspace_switch = true
-    smart_auto_hide = true
+    smart_auto_hide = false
     start = [ "workspaces" ]
-    thickness = 34
+    thickness = 26
     widget_spacing = 6
 
         [bar.default.dead_zone]
@@ -272,12 +272,99 @@ wallpaper = ""
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001" ]
+widget_order = [
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-login-box@DP-1",
+    "lockscreen-login-box@DP-3",
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-widget-0000000000000001"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "DP-3"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 608.0
+    cx = 320.0
+    cy = 298.0
+    output = "HDMI-A-1"
+    placement_height = 480.0
+    placement_width = 640.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 70.0
@@ -618,7 +705,7 @@ source = "builtin"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "foot", "niri" ]
+    builtin_ids = [ "foot", "gtk4", "niri" ]
     community_ids = []
     enable_builtin_templates = true
     enable_community_templates = true
@@ -634,13 +721,25 @@ fill_mode = "crop"
 per_monitor_directories = false
 transition = [ "fade", "wipe", "disc", "stripes", "zoom", "honeycomb" ]
 transition_duration = 1500.0
-transition_on_startup = true
+transition_on_startup = false
 
     [wallpaper.automation]
     enabled = false
     interval_seconds = 1800
     order = "random"
     recursive = true
+
+    [wallpaper.default]
+    path = "/home/khuong/nixos-config/wallpapers/river-fog.jpg"
+
+    [wallpaper.last]
+    path = "/home/khuong/nixos-config/wallpapers/river-fog.jpg"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/khuong/nixos-config/wallpapers/river-fog.jpg"
+
+    [wallpaper.monitors.DP-3]
+    path = "/home/khuong/nixos-config/wallpapers/river-fog.jpg"
 
 [weather]
 effects = true
@@ -713,3 +812,6 @@ type = "spacer"
 [widget.temp]
 stat = "cpu_temp"
 type = "sysmon"
+
+[widget.workspaces]
+style = "minimal"
