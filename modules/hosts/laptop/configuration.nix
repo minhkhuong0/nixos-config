@@ -1,4 +1,4 @@
-{ self, inputs, ... }:
+{ self, ... }:
 
 {
   flake.nixosModules.laptopConfiguration = { pkgs, lib, ... }: {
@@ -13,6 +13,7 @@
 
         environment.systemPackages = with pkgs; [
           brightnessctl
+          pangolin-cli
         ];
       })
     ];

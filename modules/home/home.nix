@@ -6,6 +6,7 @@
       inputs.home-manager.nixosModules.home-manager
     ];
 
+    nixpkgs.config.allowUnfree = true;
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
@@ -23,6 +24,8 @@
           self.homeModules.foot
           self.homeModules.browser
         ];
+        programs.obsidian.enable = true;
+
         xdg.mimeApps = {
           enable = true;
           defaultApplications = {

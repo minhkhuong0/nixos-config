@@ -71,12 +71,18 @@
         nil_ls.enable = true;
         clangd.enable = true;
         pyright.enable = true;
+        terraform_lsp.enable = true;
+        tflint.enable = true;
+        yamlls.enable = true;
       };
 
       extraPackages = with pkgs; [
         nil
         clang
         pyright
+        terraform-ls
+        tflint
+        yaml-language-server
       ];
 
     };

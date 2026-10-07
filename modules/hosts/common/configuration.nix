@@ -87,6 +87,9 @@
       man-pages
       man-pages-posix
       python3
+      colmena
+      opentofu
+      ansible
     ];
 
     programs = {

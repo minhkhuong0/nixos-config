@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ ... }: {
   flake.homeModules.noctalia = { config, repoPath, ... }: {
     programs.noctalia = {
       enable = true;

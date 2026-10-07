@@ -120,6 +120,7 @@ binds {
 		spawn "zen-beta"
 	}
   Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
+  Mod+V { spawn-sh "noctalia msg panel-toggle clipboard"; }
   Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg panel-toggle session"; }
   Super+Shift+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock-and-suspend"; }
 
