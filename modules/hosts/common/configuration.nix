@@ -90,6 +90,7 @@
       colmena
       opentofu
       ansible
+      kubectl
     ];
 
     programs = {
