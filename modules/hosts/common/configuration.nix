@@ -91,6 +91,7 @@
       opentofu
       ansible
       kubectl
+      joplin-desktop
     ];
 
     programs = {
