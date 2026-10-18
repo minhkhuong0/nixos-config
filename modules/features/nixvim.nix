@@ -14,6 +14,7 @@
         telescope.enable = true;
         treesitter.enable = true;
         lspconfig.enable = true;
+        typst-preview.enable = true;
       };
 
       opts = {
@@ -74,6 +75,7 @@
         terraform_lsp.enable = true;
         tflint.enable = true;
         yamlls.enable = true;
+        tinymist.enable = true;
       };
 
       extraPackages = with pkgs; [
@@ -83,6 +85,7 @@
         terraform-ls
         tflint
         yaml-language-server
+        tinymist
       ];
 
     };

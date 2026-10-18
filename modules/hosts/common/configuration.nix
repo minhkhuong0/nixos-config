@@ -92,6 +92,8 @@
       ansible
       kubectl
       joplin-desktop
+      typst
+      dig
     ];
 
     programs = {
