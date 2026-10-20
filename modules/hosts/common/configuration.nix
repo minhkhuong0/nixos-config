@@ -96,6 +96,8 @@
       dig
       awscli2
       ssm-session-manager-plugin
+      legcord
+      hugo
     ];
 
     programs = {
