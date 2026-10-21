@@ -94,6 +94,8 @@
       joplin-desktop
       typst
       dig
+      awscli2
+      ssm-session-manager-plugin
     ];
 
     programs = {
