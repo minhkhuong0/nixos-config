@@ -98,6 +98,7 @@
       ssm-session-manager-plugin
       legcord
       hugo
+      thunderbird
     ];
 
     programs = {
