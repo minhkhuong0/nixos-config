@@ -99,6 +99,8 @@
       legcord
       hugo
       thunderbird
+      sops
+      age
     ];
 
     programs = {
