@@ -91,6 +91,8 @@
       opentofu
       ansible
       kubectl
+      kustomize
+      kubernetes-helm
       joplin-desktop
       typst
       dig
