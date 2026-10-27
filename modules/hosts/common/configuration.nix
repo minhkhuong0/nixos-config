@@ -15,9 +15,6 @@
 
         timeout = 1;
       };
-      initrd = {
-        verbose = false;
-      };
     };
   
     networking.wireless.enable = true;
