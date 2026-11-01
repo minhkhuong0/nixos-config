@@ -22,7 +22,6 @@
           self.homeModules.noctalia
           self.homeModules.niri
           self.homeModules.foot
-          self.homeModules.browser
         ];
         programs.obsidian.enable = true;
 

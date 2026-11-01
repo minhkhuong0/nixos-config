@@ -100,6 +100,7 @@
       thunderbird
       sops
       age
+      firefox
     ];
 
     programs = {

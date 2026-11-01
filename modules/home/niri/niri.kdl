@@ -117,7 +117,7 @@ binds {
 
 	Mod+T {	spawn-sh "footclient";	}
 	Mod+B {
-		spawn "zen-beta"
+		spawn "firefox"
 	}
   Mod+D { spawn-sh "noctalia msg panel-toggle launcher"; }
   Mod+V { spawn-sh "noctalia msg panel-toggle clipboard"; }
