@@ -93,6 +93,7 @@
       joplin-desktop
       typst
       dig
+      nmap
       awscli2
       ssm-session-manager-plugin
       legcord
@@ -101,6 +102,7 @@
       sops
       age
       firefox
+      forgejo-cli
     ];
 
     programs = {
