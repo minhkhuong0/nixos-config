@@ -76,6 +76,7 @@
         tflint.enable = true;
         yamlls.enable = true;
         tinymist.enable = true;
+        gopls.enable = true;
       };
 
       extraPackages = with pkgs; [
@@ -86,6 +87,7 @@
         tflint
         yaml-language-server
         tinymist
+        gopls
       ];
 
     };

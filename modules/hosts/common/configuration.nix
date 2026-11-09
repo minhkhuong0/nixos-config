@@ -104,6 +104,7 @@
       firefox
       forgejo-cli
       qgis
+      go
     ];
 
     programs = {
