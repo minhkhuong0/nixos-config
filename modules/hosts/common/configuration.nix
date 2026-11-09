@@ -103,6 +103,7 @@
       age
       firefox
       forgejo-cli
+      qgis
     ];
 
     programs = {
