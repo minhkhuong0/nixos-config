@@ -22,9 +22,17 @@
         relativenumber = true;
         expandtab = true;
         tabstop = 2;
-        shiftwidth = 2;
+        shiftwidth = 0;
         undofile = true;
       };
+
+      autoCmd = [
+        {
+          event = "FileType";
+          pattern = "go";
+          command = "setlocal tabstop=4 noexpandtab";
+        }
+      ];
 
       globals.mapleader = " ";
       keymaps = [
