@@ -32,6 +32,11 @@
           pattern = "go";
           command = "setlocal tabstop=4 noexpandtab";
         }
+        {
+          event = "FileType";
+          pattern = "make";
+          command = "setlocal tabstop=4 noexpandtab";
+        }
       ];
 
       globals.mapleader = " ";
