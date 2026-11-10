@@ -105,6 +105,7 @@
       forgejo-cli
       qgis
       go
+      make
     ];
 
     programs = {
