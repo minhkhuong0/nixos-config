@@ -85,6 +85,7 @@
         yamlls.enable = true;
         tinymist.enable = true;
         gopls.enable = true;
+        hadolint.enable = true;
       };
 
       extraPackages = with pkgs; [
@@ -96,6 +97,7 @@
         yaml-language-server
         tinymist
         gopls
+        hadolint
       ];
 
     };
