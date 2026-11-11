@@ -105,7 +105,8 @@
       forgejo-cli
       qgis
       go
-      make
+      gnumake
+      sqlc
     ];
 
     programs = {
