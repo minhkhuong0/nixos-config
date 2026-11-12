@@ -114,6 +114,7 @@
         gnumake
         sqlc
         go-migrate-no-snowflake
+        uv
       ];
 
       programs = {
