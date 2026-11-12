@@ -107,6 +107,7 @@
       go
       gnumake
       sqlc
+      go-migrate
     ];
 
     programs = {
