@@ -115,6 +115,7 @@
         sqlc
         go-migrate-no-snowflake
         uv
+        unzip
       ];
 
       programs = {
