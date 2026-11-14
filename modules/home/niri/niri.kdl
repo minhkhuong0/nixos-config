@@ -175,7 +175,6 @@ input {
 }
 
 output "HDMI-A-1" {
-  off
 };
 
 output "LG Electronics LG ULTRAGEAR 401NTTQ9L889" {
