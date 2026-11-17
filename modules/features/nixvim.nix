@@ -122,22 +122,9 @@
         cssls.enable = true;
         html.enable = true;
         emmet_language_server.enable = true;
+        ts_ls.enable = true;
+        eslint.enable = true;
       };
-
-      extraPackages = with pkgs; [
-        nil
-        clang
-        pyright
-        terraform-ls
-        tflint
-        yaml-language-server
-        tinymist
-        gopls
-        hadolint
-        vue-language-server
-        vscode-langservers-extracted
-        emmet-language-server
-      ];
 
     };
   };
