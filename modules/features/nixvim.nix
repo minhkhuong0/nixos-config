@@ -17,7 +17,6 @@
         treesitter = {
           enable = true;
           highlight.enable = true;
-          indent.enable = true;
           folding.enable = true;
         };
         cmp = {
@@ -62,12 +61,7 @@
       autoCmd = [
         {
           event = "FileType";
-          pattern = "go";
-          command = "setlocal tabstop=4 noexpandtab";
-        }
-        {
-          event = "FileType";
-          pattern = "make";
+          pattern = [ "go" "make" ];
           command = "setlocal tabstop=4 noexpandtab";
         }
       ];
