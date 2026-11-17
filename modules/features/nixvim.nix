@@ -20,6 +20,15 @@
           indent.enable = true;
           folding.enable = true;
         };
+        cmp = {
+          enable = true;
+          autoEnableSources = true;
+          settings.sources = [
+            { name = "nvim_lsp"; }
+            { name = "path"; }
+            { name = "buffer"; }
+          ];
+        };
       };
 
       opts = {
@@ -97,6 +106,9 @@
         tinymist.enable = true;
         gopls.enable = true;
         hadolint.enable = true;
+        vuels.enable = true;
+        cssls.enable = true;
+        html.enable = true;
       };
 
       extraPackages = with pkgs; [
@@ -109,6 +121,8 @@
         tinymist
         gopls
         hadolint
+        vue-language-server
+        vscode-langservers-extracted
       ];
 
     };

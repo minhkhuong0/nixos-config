@@ -116,6 +116,7 @@
         go-migrate-no-snowflake
         uv
         unzip
+        nodejs
       ];
 
       programs = {
