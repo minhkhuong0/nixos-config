@@ -12,9 +12,14 @@
       plugins = {
         lightline.enable = true;
         telescope.enable = true;
-        treesitter.enable = true;
         lspconfig.enable = true;
         typst-preview.enable = true;
+        treesitter = {
+          enable = true;
+          highlight.enable = true;
+          indent.enable = true;
+          folding.enable = true;
+        };
       };
 
       opts = {
@@ -24,6 +29,7 @@
         tabstop = 2;
         shiftwidth = 0;
         undofile = true;
+        foldlevelstart = 99;
       };
 
       autoCmd = [
