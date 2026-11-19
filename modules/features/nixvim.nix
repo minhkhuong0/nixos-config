@@ -18,6 +18,10 @@
           enable = true;
           highlight.enable = true;
           folding.enable = true;
+          indent = {
+            enable = true;
+            disable = [ "vue" ];
+          };
         };
         cmp = {
           enable = true;
@@ -118,12 +122,27 @@
         tinymist.enable = true;
         gopls.enable = true;
         hadolint.enable = true;
-        vuels.enable = true;
+        vue_ls.enable = true;
         cssls.enable = true;
         html.enable = true;
         emmet_language_server.enable = true;
-        ts_ls.enable = true;
+        ts_ls = {
+          enable = true;
+          config = {
+            filetypes = [ "typescript" "javascript" "javascriptreact" "typescriptreact" "vue" ];
+            init_options = {
+              plugins = [
+                {
+                  name = "@vue/typescript-plugin";
+                  location = "${pkgs.vue-language-server}/lib/language-tools/packages/language-server";
+                  languages = [ "vue" ];
+                }
+              ];
+            };
+          };
+        };
         eslint.enable = true;
+        tailwindcss.enable = true;
       };
 
     };
